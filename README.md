@@ -14,12 +14,19 @@ Luz de jardin 'vitaminada' con arduino nano
 
  Ejemplos:
  +30 ºC --> 3 parpadeos verdes
+ 
  +19 ºC --> 1 parpadeo verde, 9 parpadeos rojos
+ 
  +8 ºC --> 6 parpadeos rojos
+ 
  0 ºC --> 4 parpadeos rapidos en color rosa
+ 
  -2 ºC --> 2 parpadeos azules
+ 
  -13 ºC --> 1 parpadeo verde, 3 parpadeos azules
+ 
  -20 ºC --> 2 parpadeos verdes, 2 parpadeos rapidos en color rosa
+ 
 
 
   (No se usan los datos de presion del barometro)
