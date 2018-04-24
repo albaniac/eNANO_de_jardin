@@ -35,7 +35,9 @@ Luz de jardin 'vitaminada' con arduino nano
   Como bateria se ha aprovechado una celda de una bateria de portatil estropeada a la que se le ha añadido
   un circuito protector para carga/descarga dado que va a estar sometida a carga mediante 
   un panel solar de 6v (-0'6 de caida en el diodo).
+  
   Arduino se alimetna  mediante sus pines 5V y GND.
+  
   Ciertamente no son 5v los que alimentan a arduino (por no añadir mas elementos al montaje)
   pero los 3'7v de la bateria son más que suficientes para hacer funcionar el montaje  
   
