@@ -1,4 +1,4 @@
-# eNANO_de_jardin
+# eNANO de jardin
 Luz de jardin 'vitaminada' con arduino nano
 
  Su funcionamiento es el siguiente: 
