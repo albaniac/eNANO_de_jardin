@@ -32,7 +32,7 @@
  Ejemplos:
  +30 ºC --> 3 parpadeos verdes
  +19 ºC --> 1 parpadeo verde, 9 parpadeos rojos
-  +8 ºC --> 6 parpadeos rojos
+  +6 ºC --> 6 parpadeos rojos
    0 ºC --> 4 parpadeos rapidos en color rosa
   -2 ºC --> 2 parpadeos azules
  -13 ºC --> 1 parpadeo verde, 3 parpadeos azules
