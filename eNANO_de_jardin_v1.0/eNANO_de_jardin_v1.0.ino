@@ -166,7 +166,7 @@ void loop()
 //mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm 
 //mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm 
 //***************************************************************************************************
-//  BLOQUE DE FUNCIONES: LECTURA SENSORES, TOMA DE DECISIONES, ACCESO EEPROM...
+//  BLOQUE DE FUNCIONES: LECTURA SENSORES, TOMA DE DECISIONES,...
 //***************************************************************************************************
 //mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm 
 //mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
@@ -298,17 +298,21 @@ void mostar_temperatura_con_parpadeos(int cifra)
   delay (2000);                           // pausa entre decenas y unidades
 
   /* MOSTAR UNIDADES */
-  if(unidades==0 AND cifra<0){ //si no hay unidades este parpadeo indica valor negativo
-    for(int i=0;i<2;i++){
-      setColor(255, 000, 255);              // rosa
-      delay(300);
-      setColor(000, 000, 000);              // apagar
-      delay(300);
+  /* si las unidades son CERO... */
+  if(unidades==0){ 
+    if(cifra<0){                              //si la temperatura es bajo cero...
+      for(int i=0;i<2;i++){                   //2 parpadeos rosa rapidos (-10 ºC o multiplos de -10)
+        setColor(255, 000, 255);              // rosa
+        delay(300);
+        setColor(000, 000, 000);              // apagar
+        delay(300);
+      }
     }
-    return;  //2 parpadeos rosa rapidos y retorno (-10 ºC o multiplos de -10)
+    return;  
   }
+ 
   /*  si existe un valor de unidades --> el color indica si Temperatura es + o -   */
-  if(cifra>0){ //si temperatura positiva
+  if(cifra>0){ //temperatura positiva
     for(int i=0;i<unidades;i++){
       setColor(255, 000, 000);                // rojo
       delay(1000);
@@ -316,7 +320,7 @@ void mostar_temperatura_con_parpadeos(int cifra)
       delay(1000);
     }
   }
-  else{  //valor negativo
+  else{  //temperatura bajo cero
     for(int i=0;i<unidades;i++){
       setColor(000, 000, 255);              // azul
       delay(1000);
