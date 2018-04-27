@@ -25,7 +25,7 @@
  Primero unos parpadeos verdes a intervalos de 1 segundo muestran las decenas
  despues con parpadeos rojos (si la temperatura es positiva) o
  parpadeos azules (si la temperatura es negativa), se muestran las unidades.
- Si la temperaturafuese de cero grados (0ºC) se postraria simplemente un breve parpadeo del mismo color rosa 
+ Si la temperatura fuese de cero grados (0ºC) se mostraria simplemente un breve parpadeo del mismo color rosa 
  Si la temperatura es un multiplo de 10 (es decir 20ºC, o -10ºC...) al no existir unidades para mostrar,
  las temperaturas por debajo de cero se indicarian mostrando un breve parpadeo rosa tras los parpadeos verdes
 
@@ -67,6 +67,7 @@
 //------------------------------------------------------
 
 #define ERROR_TEMPERATURA 1     //valor que se suma a la lectura de este BMP180
+                                //en micaso mide 1 grado menso que otros termometros que tengo calibrados
 
 #define PIN_LED 13              //led OnBoard de Arduino UNO/NANO/MEGA
 
@@ -111,7 +112,7 @@ unsigned long momento_para_mostrar_datos = 0;
 //*******************************************************
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(9600);   // --> para DEBUG
   sensorBMP180.begin();
   
   pinMode(pinRojo, OUTPUT);  //PIN conectado al rojo del LED
@@ -123,7 +124,7 @@ void setup()
   digitalWrite(13, LOW); //apagar PIN13
   
   leerDatosSensorBMP180();              //mirar la temperatura actual
-  Temperatura = int(Temperatura) + ERROR_TEMPERATURA;      //eliminar decimales y corregir el puto error del bmp180
+  Temperatura = int(Temperatura) + ERROR_TEMPERATURA;      //eliminar decimales y corregir el error del bmp180
 
 }
 
