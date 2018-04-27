@@ -96,11 +96,13 @@ SFE_BMP180 sensorBMP180;   //Creamos el objeto 'sensorBMP180' como una instancia
 // Variables GLOBALES
 //------------------------------------------------------
 
-float ALTITUD = 407.0;      // Altitud de Sorbas en metros
-float altitud_estimada;     //guarda el calculo de altitud estimada en funcion de la presion (Sin utilidad práctica)
-float Temperatura = 0;      //variable para la temperatura leida del BMP180
-float PresionRelativaCotaCero = 0;
-float PresionABS = 0;       //variable para la presion leida del BMP180
+float ALTITUD = 407.0;              // Altitud de Sorbas en metros
+float altitud_estimada;             //guarda el calculo de altitud estimada en funcion de la presion 
+                                    //(Sin utilidad practica)
+float PresionRelativaCotaCero = 0;  //(Sin utilidad practica)
+float PresionABS = 0;               //variable para la presion leida del BMP180  //(Sin utilidad practica)
+                           
+float Temperatura = 0;              //variable para la temperatura leida del BMP180
 
 unsigned long momento_para_mostrar_datos = 0;
 
