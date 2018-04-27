@@ -117,17 +117,16 @@ void setup()
   Serial.begin(9600);   // --> para DEBUG
   sensorBMP180.begin();
   
-  pinMode(pinRojo, OUTPUT);  //PIN conectado al rojo del LED
-  pinMode(pinVerde, OUTPUT); //PIN conectado al verde del LED
-  pinMode(pinAzul, OUTPUT);  //PIN conectado al azul del LED
-  setColor(255, 000, 255);   //rosa intenso
+  pinMode(pinRojo, OUTPUT);   //PIN conectado al rojo del LED
+  pinMode(pinVerde, OUTPUT);  //PIN conectado al verde del LED
+  pinMode(pinAzul, OUTPUT);   //PIN conectado al azul del LED
+  setColor(255, 000, 255);    //rosa intenso
   delay(2000);
-  pinMode(13, OUTPUT); //PIN13 como salida
-  digitalWrite(13, LOW); //apagar PIN13
+  pinMode(13, OUTPUT);        //PIN13 como salida
+  digitalWrite(13, LOW);      //apagar PIN13
   
-  leerDatosSensorBMP180();              //mirar la temperatura actual
+  leerDatosSensorBMP180();    //mirar la temperatura actual
   Temperatura = int(Temperatura) + ERROR_TEMPERATURA;      //eliminar decimales y corregir el error del bmp180
-
 }
 
 
@@ -187,8 +186,8 @@ void leerDatosSensorBMP180()
 {
   char estado;
   double T,P,p0,a;
-  boolean FLAG_error_presion = false;
-  boolean FLAG_error_temperatura = false;
+  boolean FLAG_error_presion = false;         //banderas por si se desea detectar errores en las mediciones
+  boolean FLAG_error_temperatura = false;     //y actuar en consecuencia. (No usado actualmente)
 
   /* Primero se debe hacer una lectura de la temepratura para poder hacer una medida de presion.
   Se inicia el proceso de lectura de la temperatura.
@@ -291,23 +290,23 @@ void mostar_temperatura_con_parpadeos(int cifra)
 
   /* MOSTAR DECENAS */
   for(int i=0;i<decenas;i++){
-    setColor(000, 255, 000);              // verde
+    setColor(000, 255, 000);                // verde
     delay(1000);
-    setColor(000, 000, 000);              // apagar
+    setColor(000, 000, 000);                // apagar
     delay(1000);
   }
  
-  setColor(000, 000, 000);                // apagar
-  delay (2000);                           // pausa entre decenas y unidades
+  setColor(000, 000, 000);                  // apagar
+  delay (2000);                             // pausa entre decenas y unidades
 
   /* MOSTAR UNIDADES */
   /* si las unidades son CERO... */
   if(unidades==0){ 
-    if(cifra<0){                              //si la temperatura es bajo cero...
-      for(int i=0;i<2;i++){                   //2 parpadeos rosa rapidos (-10 ºC o multiplos de -10)
-        setColor(255, 000, 255);              // rosa
+    if(cifra<0){                            //si la temperatura es bajo cero...
+      for(int i=0;i<2;i++){                 //2 parpadeos rosa rapidos (-10 ºC o multiplos de -10)
+        setColor(255, 000, 255);            // rosa
         delay(300);
-        setColor(000, 000, 000);              // apagar
+        setColor(000, 000, 000);            // apagar
         delay(300);
       }
     }
@@ -317,9 +316,9 @@ void mostar_temperatura_con_parpadeos(int cifra)
   /*  si existe un valor de unidades --> el color indica si Temperatura es + o -   */
   if(cifra>0){ //temperatura positiva
     for(int i=0;i<unidades;i++){
-      setColor(255, 000, 000);                // rojo
+      setColor(255, 000, 000);              // rojo
       delay(1000);
-      setColor(000, 000, 000);                // apagar
+      setColor(000, 000, 000);              // apagar
       delay(1000);
     }
   }
