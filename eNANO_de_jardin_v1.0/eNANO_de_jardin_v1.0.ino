@@ -67,7 +67,7 @@
 //------------------------------------------------------
 
 #define ERROR_TEMPERATURA 1     //valor que se suma a la lectura de este BMP180
-                                //en micaso mide 1 grado menso que otros termometros que tengo calibrados
+                                //en mi caso mide 1 grado menos que otros termometros que tengo calibrados
 
 #define PIN_LED 13              //led OnBoard de Arduino UNO/NANO/MEGA
 
@@ -97,7 +97,7 @@ SFE_BMP180 sensorBMP180;   //Creamos el objeto 'sensorBMP180' como una instancia
 //------------------------------------------------------
 
 float ALTITUD = 407.0;      // Altitud de Sorbas en metros
-float altitud_estimada;     //guarda el calculo de altitud estimada en funcion de la presion Sin utilidad practica
+float altitud_estimada;     //guarda el calculo de altitud estimada en funcion de la presion (Sin utilidad práctica)
 float Temperatura = 0;      //variable para la temperatura leida del BMP180
 float PresionRelativaCotaCero = 0;
 float PresionABS = 0;       //variable para la presion leida del BMP180
